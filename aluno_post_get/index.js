@@ -2,15 +2,15 @@ app.get('/alunos', (req, res) => {
     let resultado = alunos.alunos;
     
     if (req.query.nome) {
-    resultado = alunos.filtrarPorNome(req.query.nome);
+        resultado = alunos.filtrarPorNome(req.query.nome);
     }
     
     if (req.query.media) {
-    resultado = alunos.filtrarPorMedia(req.query.media);
+        resultado = alunos.filtrarPorMedia(req.query.media);
     }
     
     res.send(resultado);
-    });
+});
 
 app.post('/alunos/novo', (req, res) => {
     const { nome, matricula, media } = req.body;
@@ -40,7 +40,6 @@ app.delete('/alunos/:index', (req, res) => {
     res.send('Aluno removido com sucesso');
 });
 
-
 app.put('/alunos/:index', (req, res) => {
     const index = req.params.index;
 
@@ -64,5 +63,5 @@ app.put('/alunos/:index', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(Aplicação rodando na porta ${ port });
+    console.log(`Aplicação rodando na porta ${port}`);
 });
