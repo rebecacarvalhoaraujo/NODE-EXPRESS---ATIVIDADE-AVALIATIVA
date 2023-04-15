@@ -28,8 +28,16 @@ function filtrarPorMedia(media) {
 
 module.exports = {
   alunos,
-  filtrarPorNome,
-  filtrarPorMedia,
+  filtrarPorNome(nome) {
+    const alunosFiltrados = filtrarPorNome(nome);
+    atualizarDbJson(alunosFiltrados);
+    return alunosFiltrados;
+  },
+  filtrarPorMedia(media) {
+    const alunosFiltrados = filtrarPorMedia(media);
+    atualizarDbJson(alunosFiltrados);
+    return alunosFiltrados;
+  },
   atualizarDbJson,
 };
 
