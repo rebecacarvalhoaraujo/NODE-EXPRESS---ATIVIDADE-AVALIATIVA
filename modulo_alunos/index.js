@@ -23,7 +23,7 @@ app.get("/alunos", (req, res) => {
 app.post("/alunos/novo", (req, res) => {
   const novoAluno = req.body;
 
-  if (!novoAluno.nome || !novoAluno.matricula || !novoAluno.media) {
+  if (!novoAluno || !novoAluno.nome || !novoAluno.matricula || !novoAluno.media) {
     res.status(400).send("Nome, matrícula e média são obrigatórios");
     return;
   }
@@ -31,6 +31,7 @@ app.post("/alunos/novo", (req, res) => {
   alunos.alunos.push(novoAluno);
   res.send("Aluno adicionado com sucesso");
 });
+
 
 // Rota POST para deletar um aluno existente
 app.post("/alunos/deletar/:index", (req, res) => {
